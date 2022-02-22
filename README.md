@@ -3,18 +3,19 @@
 # Npm version
 
 * **Node:** First this.
+```
 npm i node@11.6.0 - node version to slate
 nvm list available
 nvm install 12.14.0
 nvm use version
-
+```
 * **Node:** or this.
-
+```
 nvm install 10.17.0
 nvm use 10.17.0
 node -v
 10.17.0
-
+```
 # Skeleton Theme
 
 > **Skeleton Theme and [Slate v1](https://github.com/Shopify/slate) are currently in beta!** You should expect potentially breaking changes between updates and more bugs than a finalized release. Slate v1.0 has not yet been tested on Windows.
