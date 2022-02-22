@@ -1,0 +1,83 @@
+<header class="header-menu">
+    <nav class="header-menu-nav">
+      <a href="#"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/cart.svg?v=1645021372" class="cart-img">Compre Online</a>
+      <a href="#">{% if section.settings.logo == blank %}
+                            {{shop.name}}
+                            {%else%}
+                                <img src="{{section.settings.logo | img_url: '200x200'}}" class="logo-img">
+                            {%endif%}
+      </a>
+      <a href="#" class="hamburger-menu"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/hamburger.svg?v=1645021372" class="hamburger-img"></a>
+    </nav>
+    <div class="hamburger-menu-modal">
+      <div class="modal-container">
+        <a href="#" class="modal-close"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/close.svg?v=1645021372" class="close-img"></a>
+        <h1>Menu</h1>
+        {% for link in linklists[section.settings.main_menu].links %}
+            {%if link.links != blank%}
+                <a href="{{link.url}}">{{link.title}}</a>
+                <div class="dropdown-menu">
+                    {%for childlink in link.links%}
+                        <a href="{{childlink.url}}">{{link.title}}</a>
+                    {%end%}
+                </div>
+                {%else%}
+                    <a href="{{link.url}}">{{link.title}}</a>
+                {%endif%}
+        {%endfor%}
+        <div class="modal-footer">
+          <a href="#"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/wpp.svg?v=1645021373" class="wpp-img">(47)3183-8200</a>
+          <a href="#"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/mail.svg?v=1645021372" class="mail-img">contato@grupostra.com.br</a>
+          <div class="line-modal">
+            <a href="https://www.instagram.com/grupo_stra/"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/instagram.svg?v=1645021372" class="instagram-img"></a>
+            <a href="https://web.facebook.com/grupostra"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/facebook.svg?v=1645021372" class="facebook-img"></a>
+            <a href="https://www.linkedin.com/company/grupo-stra"><img src="https://cdn.shopify.com/s/files/1/0534/2812/5857/files/linkedin.svg?v=1645021372" class="linkedin-img"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+<script>
+var hamburger = document.querySelector('.hamburger-menu');
+var modal = document.querySelector('.hamburger-menu-modal');
+var modalClose = document.querySelector('.modal-close');
+var modalContainer = document.querySelector('.modal-container');
+
+hamburger.addEventListener("click", () => {
+    modal.classList.remove("out")
+    modalContainer.classList.remove("off");
+    modal.classList.add('one');
+    modal.classList.add('modal-active');
+})
+
+modalClose.addEventListener("click", () => {
+    modal.classList.add("out");
+    modal.classList.remove("one")
+    modal.classList.remove("modal-active")
+    modalContainer.classList.add("off");
+})
+</script>
+
+{% schema %}
+    {
+        "name": "Header",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Header"
+            },
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "logo image"
+            },
+            {
+                "type": "link_list",
+                "id": "main_menu",
+                "label": "Menu",
+                "default": "main-menu"
+            }
+        ]
+    }
+{% endschema %}

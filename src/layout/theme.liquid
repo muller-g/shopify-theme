@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;700&display=swap" rel="stylesheet">
+  <title>{{ shop.name }}</title>
+
+  <meta name="description" content="">
+
+  {% include 'style-tags', layout: 'theme' %}
+  {% include 'script-tags', layout: 'theme' %}
+
+  {{ content_for_header }}
+</head>
+<body>
+  {% section 'header' %}
+  {{ content_for_layout }}
+  {% section 'footer-menu' %}
+</body>
+</html>
