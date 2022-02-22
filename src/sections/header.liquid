@@ -19,7 +19,7 @@
                 <div class="dropdown-menu">
                     {%for childlink in link.links%}
                         <a href="{{childlink.url}}">{{link.title}}</a>
-                    {%end%}
+                    {%endfor%}
                 </div>
                 {%else%}
                     <a href="{{link.url}}">{{link.title}}</a>
