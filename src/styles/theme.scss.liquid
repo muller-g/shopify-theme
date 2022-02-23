@@ -215,7 +215,7 @@
 .footer-menu{
     background-color: #202a44;
     position: absolute!important;
-    bottom: -600px;
+    bottom: 0px;
     left: 0;
     width: 100%;
     padding: 30px 0px 0px 0px;
@@ -382,6 +382,12 @@
     }
 }
 
+@media(max-width: 800px){
+    .footer-info:before {
+        width: 100%;
+    }
+}
+
 @media (max-width: 742px){
     .footer-copyright-container .refound-policy, .footer-copyright-container .terms{
         display: none;
@@ -479,6 +485,7 @@
 
     .footer-info:before {
         top: 359px;
+        width: 100%;
     }
 
     .footer-menu .wpp-img, .footer-menu .mail-img{

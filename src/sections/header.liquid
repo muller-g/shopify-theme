@@ -44,7 +44,8 @@ var modal = document.querySelector('.hamburger-menu-modal');
 var modalClose = document.querySelector('.modal-close');
 var modalContainer = document.querySelector('.modal-container');
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", (e) => {
+    e.preventDefault();
     modal.classList.remove("out")
     modalContainer.classList.remove("off");
     modal.classList.add('one');
